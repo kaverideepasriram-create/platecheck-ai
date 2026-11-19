@@ -8,6 +8,7 @@
     "06-tofu-rice-bowl.jpg": ["Tofu and rice bowl","Rice, tofu, broccoli and peppers appear visible.",["Rice, tofu and vegetables are visible.","You could add fruit, such as a banana or orange. Fortified soy milk or another calcium-rich food is another option."]],
     "07-south-indian-breakfast-idli-dosa.jpg": ["South Indian idli and dosa breakfast","Idli, dosa, sambar and chutneys appear visible. Lentils in sambar provide some protein.",["Idli and dosa provide grains, and lentils in sambar provide some protein.","You could add peanut chutney or roasted chana for another protein-rich option. Fruit could add variety too."]]
   };
+  let demoSelectedFilename = null;
   function show(filename){
     const d=samples[filename], target=document.getElementById("results"), empty=document.getElementById("emptyState");
     if(!d||!target||!empty)return false;
@@ -16,7 +17,39 @@
   }
   document.addEventListener("click",function(e){
     const b=e.target.closest("[data-sample]");
-    if(b){e.preventDefault();show(b.getAttribute("data-sample"));}
+    if(b){e.preventDefault();demoSelectedFilename=b.getAttribute("data-sample");show(demoSelectedFilename);}
+  });
+  document.querySelectorAll("[data-sample]").forEach(function(card){
+    card.setAttribute("draggable","true");
+    card.addEventListener("dragstart",function(event){
+      demoSelectedFilename=card.getAttribute("data-sample");
+      event.dataTransfer.setData("text/plain",demoSelectedFilename);
+      event.dataTransfer.effectAllowed="copy";
+    });
+  });
+  const dropzone=document.getElementById("dropzone");
+  const preview=document.getElementById("preview");
+  const previewWrap=document.getElementById("previewWrap");
+  const analyzeButton=document.getElementById("analyzeButton");
+  if(dropzone){
+    dropzone.addEventListener("dragover",function(event){event.preventDefault();dropzone.style.outline="3px dashed #174c3a";});
+    dropzone.addEventListener("dragleave",function(){dropzone.style.outline="";});
+    dropzone.addEventListener("drop",function(event){
+      event.preventDefault();dropzone.style.outline="";
+      const filename=event.dataTransfer.getData("text/plain");
+      if(!samples[filename])return;
+      demoSelectedFilename=filename;
+      if(preview)preview.src=filename;
+      dropzone.hidden=true;
+      if(previewWrap)previewWrap.hidden=false;
+      if(analyzeButton){analyzeButton.disabled=false;analyzeButton.textContent="Show PlateCheck result →";}
+      const empty=document.getElementById("emptyState");
+      if(empty){empty.hidden=false;empty.innerHTML="<strong>Sample photo added</strong><span>Press the button to see its matching demo result.</span>";}
+      const results=document.getElementById("results");if(results)results.hidden=true;
+    });
+  }
+  if(analyzeButton) analyzeButton.addEventListener("click",function(){
+    if(demoSelectedFilename){show(demoSelectedFilename);analyzeButton.textContent="Sample result shown";}
   });
   const analyze=document.getElementById("analyzeButton"), input=document.getElementById("photoInput");
   if(analyze) analyze.addEventListener("click",function(){
