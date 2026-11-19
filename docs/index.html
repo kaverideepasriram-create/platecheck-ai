@@ -30,44 +30,40 @@
     </section>
 
     <div class="workspace-layout">
-    <section class="workspace">
-      <div class="upload-card">
-        <div class="section-heading"><div><h2>Add your meal photo</h2><p>Use a clear photo taken from above if possible.</p></div></div>
-        <label class="dropzone" id="dropzone" for="photoInput">
-          <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" capture="environment">
-          <span class="upload-icon">↑</span>
-          <strong>Choose a photo</strong>
-          <span>Tap to take a picture or select one</span>
-          <small>JPG, PNG or WEBP · Up to 8 MB</small>
-        </label>
-        <div class="preview-wrap" id="previewWrap" hidden>
-          <img id="preview" alt="Your selected meal">
-          <button class="text-button" id="changePhoto" type="button">Change photo</button>
+      <section class="workspace">
+        <div class="upload-card">
+          <div class="section-heading"><div><h2>Add your meal photo</h2><p>Use a clear photo taken from above if possible.</p></div></div>
+          <label class="dropzone" id="dropzone" for="photoInput">
+            <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" capture="environment">
+            <span class="upload-icon">↑</span>
+            <strong>Choose a photo</strong>
+            <span>Tap to take a picture or select one</span>
+            <small>JPG, PNG or WEBP · Up to 8 MB</small>
+          </label>
+          <div class="preview-wrap" id="previewWrap" hidden>
+            <img id="preview" alt="Your selected meal">
+            <button class="text-button" id="changePhoto" type="button">Change photo</button>
+          </div>
+          <button class="primary-button" id="analyzeButton" type="button" disabled>Preview my food photo <span>→</span></button>
+          <p class="privacy-note">This photo preview is local. Prepared sample meals show matching demonstration suggestions. Live AI photo analysis is not connected yet.</p>
         </div>
-        <button class="primary-button" id="analyzeButton" type="button" disabled>Preview my food photo <span>→</span></button>
-        <p class="privacy-note">Your photo is sent to the AI service for analysis when you press the button. It isn't saved by this starter app.</p>
-      </div>
-
-      <div class="results-card" id="resultsCard" aria-live="polite">
-        <div class="section-heading"><div><h2>Your plate check</h2><p>Food groups the photo may show.</p></div></div>
-        <div class="empty-state" id="emptyState">
-          <div class="empty-illustration">◉</div>
-          <strong>Your results will appear here</strong>
-          <span>Choose a meal photo to get started.</span>
+        <div class="results-card" id="resultsCard" aria-live="polite">
+          <div class="section-heading"><div><h2>Your plate check</h2><p>Food groups the photo may show.</p></div></div>
+          <div class="empty-state" id="emptyState">
+            <div class="empty-illustration">◉</div>
+            <strong>Your results will appear here</strong>
+            <span>Choose a meal photo to get started.</span>
+          </div>
+          <div id="results" hidden></div>
         </div>
-        <div id="results" hidden></div>
-      </div>
-    </sect
-    <section class="creator-note">
-      <div class="section-heading"><div><h2>A note from Kaveri Sriram</h2><p>About the photo-analysis feature and what I hope to build next.</p></div></div>
-      <p style="font-size:14px;line-height:1.8;color:var(--muted)">Hi! I'm Kaveri Sriram, and I'm in Grade 7A. I created PlateCheck AI because I wanted to use technology to make learning about food groups more interesting. You can upload or take a photo of your food and see it displayed here. I wanted the app to go one step further and use AI to recognise the food in the picture and suggest what food groups could be added. To make that work, I need to connect the app to an AI API. This requires paid credits, and I wasn't able to get those credits because the cost was too high for my project. So the photo upload works, but the automatic AI analysis is not available yet. I hope that when I have the funds, I can continue developing this app so that people can take a photo of their meal and receive suggestions about food groups they could add. Thank you for exploring my project!</p>
-    </sect
-    </div>ion>
+      </section>
+      <aside class="creator-note">
+        <div class="section-heading"><div><h2>A note from Kaveri Sriram</h2><p>Grade 7A project creator</p></div></div>
+        <p>Hi! I'm Kaveri Sriram, and I'm in Grade 7A. I created PlateCheck AI because I wanted to use technology to make learning about food groups more interesting. You can upload or take a photo of your food and see it displayed here. I wanted the app to go one step further and use AI to recognise the food in the picture and suggest what food groups could be added. To make that work, I need to connect the app to an AI API. This requires paid credits, and I wasn't able to get those credits because the cost was too high for my project. So the photo upload works, but automatic AI analysis is not available yet. I hope that when I have the funds, I can continue developing this app. Thank you for exploring my project!</p>
+      </aside>
+    </div>
 
-
-
-
-<section class="upload-card" id="sampleMeals" style="margin-top:24px"><div class="section-heading"><div><h2>Try one of the sample meals</h2><p>Choose a prepared photo to see its matching PlateCheck demonstration result.</p></div></div><p style="font-size:13px;line-height:1.6;color:var(--muted)">These are prepared examples for the exhibition. You can also download these photos and upload them above. New or different photos are not recognised by AI.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px"><button type="button" data-sample="01-vegetarian-indian-thali.jpg" style="text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px;cursor:pointer;color:inherit"><img src="01-vegetarian-indian-thali.jpg" alt="Vegetarian thali" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px"><strong>Vegetarian thali</strong><span style="display:block;font-size:12px;color:var(--muted)">View sample result</span></button>
+    <section class="upload-card" id="sampleMeals" style="margin-top:24px"><div class="section-heading"><div><h2>Try one of the sample meals</h2><p>Choose a prepared photo to see its matching PlateCheck demonstration result.</p></div></div><p style="font-size:13px;line-height:1.6;color:var(--muted)">These are prepared examples for the exhibition. You can also download these photos and upload them above. New or different photos are not recognised by AI.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px"><button type="button" data-sample="01-vegetarian-indian-thali.jpg" style="text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px;cursor:pointer;color:inherit"><img src="01-vegetarian-indian-thali.jpg" alt="Vegetarian thali" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px"><strong>Vegetarian thali</strong><span style="display:block;font-size:12px;color:var(--muted)">View sample result</span></button>
 <button type="button" data-sample="02-non-vegetarian-indian-thali.jpg" style="text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px;cursor:pointer;color:inherit"><img src="02-non-vegetarian-indian-thali.jpg" alt="Non-vegetarian thali" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px"><strong>Non-vegetarian thali</strong><span style="display:block;font-size:12px;color:var(--muted)">View sample result</span></button>
 <button type="button" data-sample="03-grilled-chicken-meal.jpg" style="text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px;cursor:pointer;color:inherit"><img src="03-grilled-chicken-meal.jpg" alt="Grilled chicken" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px"><strong>Grilled chicken</strong><span style="display:block;font-size:12px;color:var(--muted)">View sample result</span></button>
 <button type="button" data-sample="04-vegetable-pasta.jpg" style="text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px;cursor:pointer;color:inherit"><img src="04-vegetable-pasta.jpg" alt="Vegetable pasta" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px"><strong>Vegetable pasta</strong><span style="display:block;font-size:12px;color:var(--muted)">View sample result</span></button>
