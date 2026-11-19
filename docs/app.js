@@ -101,7 +101,18 @@ if (chatForm) {
     { keys: ["oats", "porridge"], group: "grain", veg: "milk or fortified soy milk, nuts or seeds, and fruit", nonveg: "milk or yoghurt, nuts or seeds, and fruit; an egg can be another option on the side" },
     { keys: ["salad"], group: "vegetable", veg: "chickpeas, kidney beans, tofu, paneer or nuts, with whole-grain bread", nonveg: "egg, tuna, fish or chicken, with whole-grain bread" },
     { keys: ["soup"], group: "vegetable", veg: "whole-grain toast and beans, lentils or tofu", nonveg: "whole-grain toast with egg, chicken or fish" },
-    { keys: ["pancake"], group: "grain", veg: "yoghurt or milk, nut butter, and fresh fruit", nonveg: "yoghurt or milk and fruit; eggs can be served alongside" }
+    { keys: ["pancake", "waffle"], group: "grain", veg: "Greek yoghurt or regular yoghurt, nut butter, and fresh berries or banana", nonveg: "eggs and yoghurt, with fresh berries or banana" },
+    { keys: ["burger", "cheeseburger"], group: "grain", veg: "a bean, lentil or veggie patty, with lettuce, tomato and a side salad or corn", nonveg: "a chicken, turkey or beef patty, with lettuce, tomato and a side salad or corn" },
+    { keys: ["pizza"], group: "grain", veg: "vegetable toppings such as mushrooms, peppers and spinach, plus a side salad or beans", nonveg: "chicken or tuna topping with vegetables, plus a side salad" },
+    { keys: ["taco", "tacos", "burrito", "quesadilla"], group: "grain", veg: "black beans, cheese or tofu, with lettuce, tomato, peppers and avocado", nonveg: "chicken, fish or lean beef, with lettuce, tomato, peppers and beans" },
+    { keys: ["fried rice"], group: "grain", veg: "tofu or edamame with peas, carrots and other vegetables", nonveg: "egg, chicken or prawns with peas, carrots and other vegetables" },
+    { keys: ["chicken"], group: "protein", veg: "if you want a vegetarian alternative, try chickpeas, tofu or paneer; add rice, potatoes or whole-grain bread and vegetables", nonveg: "rice, whole-grain bread or potatoes, with a colourful vegetable side such as broccoli, carrots or salad" },
+    { keys: ["fish", "salmon", "tuna", "prawns", "shrimp"], group: "protein", veg: "if you want a vegetarian alternative, try beans, lentils, tofu or paneer; add rice or potatoes and vegetables", nonveg: "rice, whole-grain bread or potatoes, with vegetables such as broccoli, peas or salad" },
+    { keys: ["egg", "eggs", "omelette", "omelet", "scrambled eggs"], group: "protein", veg: "for an egg-free option, try beans, tofu or paneer; add whole-grain toast and fruit or vegetables", nonveg: "whole-grain toast, tomatoes, spinach or mushrooms, and fruit" },
+    { keys: ["steak", "beef", "lamb", "pork", "meatballs"], group: "protein", veg: "if you want a vegetarian alternative, try lentil patties, beans, tofu or mushrooms; add potatoes or whole grains and vegetables", nonveg: "potatoes, brown rice or whole-grain bread, with green vegetables or salad" },
+    { keys: ["cereal", "granola"], group: "grain", veg: "milk, yoghurt or fortified soy milk, with fruit and a few nuts or seeds", nonveg: "milk or yoghurt with fruit; eggs can be served on the side if you like" },
+    { keys: ["sushi"], group: "grain", veg: "tofu, edamame or vegetable rolls, with cucumber, carrots and miso soup", nonveg: "salmon, tuna or cooked prawn sushi, with edamame and cucumber or seaweed salad" },
+    { keys: ["curry"], group: "meal", veg: "dal, chickpeas, paneer or tofu, with rice or roti and a vegetable side", nonveg: "chicken, fish or egg curry, with rice or roti and a vegetable side" }
   ];
   const form = chatForm;
   form.addEventListener("submit", (event) => {
@@ -115,12 +126,12 @@ if (chatForm) {
     let response;
     if (match) {
       response = "A few ideas to go with " + matchedFood + ":\n\nVegetarian: " + match.veg + ".\n\nIf you eat non-vegetarian foods: " + match.nonveg + ".\n\nA helpful balance is to combine a grain or starchy food with protein-rich foods and vegetables or fruit. Choose the combinations you enjoy and that fit your usual meals.";
-    } else if (/protein|vegetarian|veg options/.test(q)) {
+    } else if (/non.?veg|non vegetarian|meat|chicken|fish|egg|seafood/.test(q)) {\n      response = "Non-vegetarian protein choices can include eggs, fish, chicken and other meats. Pair them with vegetables or fruit and a grain or starchy food such as rice, potatoes, roti or whole-grain bread. For example, grilled chicken goes well with brown rice and vegetables; fish can go with potatoes and salad; eggs can go with whole-grain toast and tomatoes. Vegetarian alternatives include beans, lentils, tofu and paneer.";\n    } else if (/western|american|italian|mexican|european/.test(q)) {\n      response = "Some balanced Western-style meal ideas: veggie or chicken pasta with tomato sauce and salad; a bean or chicken burger with lettuce and tomato; vegetable or chicken tacos with beans; omelette with whole-grain toast and fruit; or baked fish with potatoes and vegetables. Choose the version that suits your preferences.";\n    } else if (/protein|vegetarian|veg options/.test(q)) {
       response = "Some protein-rich choices include dal, chickpeas, rajma, beans, soy foods, tofu, paneer, milk, curd, nuts and seeds. If you eat non-vegetarian foods, eggs, fish and chicken are also options. You can pair one with rice, roti, bread or another grain, plus vegetables.";
     } else if (/balanced|healthy|food pyramid|food groups/.test(q)) {
       response = "A varied meal can include a grain or starchy food, vegetables or fruit, and a protein-rich food. Dairy or a fortified alternative can contribute calcium and other nutrients. The food pyramid is a learning guide, not a strict rule for every meal.";
     } else {
-      response = "I can suggest pairings for common foods such as roti, rice, dosa, idli, pasta, bread, noodles, potatoes, oats, salad and soup. Try asking, for example: “What can I eat with rice?” or “What protein can I add to a vegetable salad?”";
+      response = "I can suggest pairings for common foods such as roti, rice, dosa, idli, pasta, bread, noodles, potatoes, oats, salad, soup, burgers, pizza, tacos, eggs, chicken, fish and sushi. You can ask about vegetarian or non-vegetarian options, too. Try: “What can I serve with grilled chicken?” or “What can I add to a veggie burger?”";
     }
     answer.textContent = response + "\n\nDemo note: This version uses a small built-in food-pairing guide, not a live AI model. The AI chat and photo recognition are planned future upgrades.";
   });
