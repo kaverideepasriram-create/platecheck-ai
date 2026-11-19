@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#174c3a">
+<title>Balanced Diet Pyramid | PlateCheck AI</title>
+<style>
+:root{--green:#174c3a;--green2:#2c7657;--ink:#20342b;--muted:#718078;--line:#e1e9e3;--cream:#fafbf7}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+header{padding:22px 5vw;background:#fff;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-weight:800;color:var(--green);text-decoration:none}.back{color:var(--green2);font-size:13px;text-decoration:none;font-weight:700}
+.intro{text-align:center;padding:34px 18px 18px}.eyebrow{font-size:11px;letter-spacing:.16em;color:var(--green2);font-weight:800}.intro h1{font:500 clamp(30px,5vw,46px) Georgia,serif;margin:10px 0;color:var(--green)}.intro p{max-width:680px;margin:auto;color:var(--muted);font-size:14px;line-height:1.65}
+main{max-width:1120px;margin:auto;padding:18px;display:grid;grid-template-columns:1.25fr .85fr;gap:18px}
+.viewer,.details{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 16px 40px #244a3010}
+.viewer{position:relative;min-height:570px}canvas{width:100%;height:100%;display:block;touch-action:none}
+.actions{position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;gap:8px;pointer-events:none}
+.actions button{pointer-events:auto;border:0;border-radius:999px;padding:11px 15px;background:var(--green);color:white;font-weight:700;cursor:pointer}.actions .light{background:#fff;color:var(--green);border:1px solid var(--line)}
+.tip{position:absolute;bottom:13px;left:13px;background:#fffE;padding:9px 12px;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:11px}
+.details{padding:22px}.details h2{font:500 25px Georgia,serif;color:var(--green);margin:0 0 7px}.details>p{font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px}
+.group{border-top:1px solid var(--line);padding:12px 0}.group button{width:100%;display:flex;justify-content:space-between;gap:8px;text-align:left;border:0;background:none;font:700 13px inherit;color:var(--ink);cursor:pointer}.group button{font-family:inherit}.group p{display:none;color:var(--muted);font-size:12px;line-height:1.6;margin:8px 0 0}.group.open p{display:block}
+.callout{padding:13px;background:#eef5ef;border-radius:12px;color:#456052;font-size:12px;line-height:1.6;margin-top:12px}
+.components{max-width:1120px;padding:0 18px 40px;margin:auto}.components h2{font:500 25px Georgia,serif;color:var(--green)}.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.tile{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px}.tile b{display:block;font-size:13px;margin-bottom:5px}.tile span{font-size:12px;line-height:1.5;color:var(--muted)}
+footer{text-align:center;padding:0 18px 28px;color:var(--muted);font-size:11px}
+#message{display:none;position:absolute;top:65px;left:50%;transform:translateX(-50%);background:#20342b;color:white;border-radius:10px;padding:10px 13px;font-size:12px;max-width:90%;text-align:center}
+@media(max-width:820px){main{grid-template-columns:1fr}.viewer{min-height:440px}.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:430px){.viewer{min-height:390px}.details{padding:17px}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="/">PlateCheck AI</a><a class="back" href="/">← Back to PlateCheck</a></header>
+<section class="intro"><div class="eyebrow">INTERACTIVE NUTRITION GUIDE</div><h1>The Balanced Diet Pyramid</h1><p>Explore a vegetarian food pyramid in 3D. Select each level to learn about food examples, nutrients and their functions in the body.</p></section>
+<main>
+<section class="viewer"><canvas id="scene"></canvas><div class="actions"><button class="light" id="reset">Reset view</button><button id="ar">View in AR</button></div><div id="message"></div><div class="tip">Drag to rotate · Scroll or pinch to zoom</div></section>
+<aside class="details"><h2>Explore the five levels</h2><p>This pyramid is a learning model. Food needs and suitable portions differ according to age, activity and individual health.</p>
+<div class="group open"><button>05 · Fats and foods to limit <span>＋</span></button><p><b>Examples:</b> nuts, seeds, vegetable oils and foods high in added sugar.<br><b>Function:</b> Unsaturated fats support cell function and help absorb vitamins A, D, E and K. Foods high in added sugar should be limited.</p></div>
+<div class="group"><button>04 · Plant-based protein <span>＋</span></button><p><b>Examples:</b> lentils, chickpeas, kidney beans, soybeans, tofu and peanuts.<br><b>Function:</b> Proteins provide amino acids needed for growth, maintenance and tissue repair.</p></div>
+<div class="group"><button>03 · Dairy and calcium-rich foods <span>＋</span></button><p><b>Examples:</b> milk, curd, paneer and fortified soy milk.<br><b>Function:</b> Calcium and protein support bones, teeth and body tissues.</p></div>
+<div class="group"><button>02 · Fruits and vegetables <span>＋</span></button><p><b>Examples:</b> apples, bananas, oranges, carrots, spinach, tomatoes and broccoli.<br><b>Function:</b> Provide vitamins, minerals, antioxidants and dietary fibre for normal body functions and digestive health.</p></div>
+<div class="group"><button>01 · Grains and cereals <span>＋</span></button><p><b>Examples:</b> rice, whole wheat, oats, ragi and other millets.<br><b>Function:</b> Carbohydrates are a major source of energy. Whole grains also provide fibre and B vitamins.</p></div>
+<div class="callout"><b>Remember:</b> A balanced diet includes variety, suitable portions and enough water. No single food provides every nutrient the body needs.</div>
+</aside>
+</main>
+<section class="components"><h2>Seven essential components of a balanced diet</h2><div class="tiles">
+<div class="tile"><b>Carbohydrates</b><span>Main source of energy for daily activities.</span></div><div class="tile"><b>Proteins</b><span>Support growth and tissue repair.</span></div><div class="tile"><b>Fats</b><span>Store energy and support cell function.</span></div><div class="tile"><b>Vitamins</b><span>Help regulate body processes.</span></div><div class="tile"><b>Minerals</b><span>Support bones, blood, nerves and muscles.</span></div><div class="tile"><b>Dietary fibre</b><span>Supports healthy digestion.</span></div><div class="tile"><b>Water</b><span>Helps transport substances and regulate body temperature.</span></div></div></section>
+<footer>PlateCheck AI · Grade 7 educational experience · Vegetarian food examples</footer>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+const canvas=document.querySelector('#scene'),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(canvas.clientWidth,canvas.clientHeight,false);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#f7f8f4');
+const camera=new THREE.PerspectiveCamera(36,canvas.clientWidth/canvas.clientHeight,.1,100);camera.position.set(7.5,6.2,9);
+const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,1.6,0);controls.enableDamping=true;controls.minDistance=5;controls.maxDistance=17;
+scene.add(new THREE.HemisphereLight(0xffffff,0x9a9588,2));const key=new THREE.DirectionalLight(0xffffff,3);key.position.set(5,9,7);scene.add(key);const fill=new THREE.DirectionalLight(0xffffff,1.3);fill.position.set(-5,4,-5);scene.add(fill);
+const M=c=>new THREE.MeshStandardMaterial({color:c,roughness:.7});const model=new THREE.Group();scene.add(model);
+function box(w,h,d,m,x,y,z){const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);model.add(o);return o}
+function ball(x,y,z,sx,sy,sz,m){const o=new THREE.Mesh(new THREE.SphereGeometry(1,24,18),m);o.position.set(x,y,z);o.scale.set(sx,sy,sz);model.add(o);return o}
+function cyl(rt,rb,h,m,x,y,z){const o=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,32),m);o.position.set(x,y,z);model.add(o);return o}
+const edge=M('#d7d0c0'),grain=M('#bd9158'),veg=M('#668d59'),fruit=M('#c96b4b'),fruit2=M('#e2b75b'),dairy=M('#eee4cf'),protein=M('#9a754e'),leaf=M('#47774b'),seed=M('#b8a16e');
+box(5.15,.16,4.15,edge,0,-.12,0);
+const tiers=[{w:4.8,d:3.8,h:.55,y:.25,m:grain},{w:3.95,d:3.15,h:.5,y:.78,m:veg},{w:3.05,d:2.45,h:.47,y:1.27,m:dairy},{w:2.18,d:1.78,h:.43,y:1.72,m:protein},{w:1.35,d:1.12,h:.4,y:2.14,m:seed}];
+tiers.forEach(t=>{box(t.w,t.h,t.d,t.m,0,t.y,0);box(t.w+.04,.045,t.d+.04,edge,0,t.y+t.h/2,0)});
+for(let i=0;i<25;i++){let x=(Math.random()-.5)*3.8,z=(Math.random()-.5)*2.8;ball(x,.59,z,.045,.075,.045,i%3?grain:dairy)}
+box(.7,.13,.42,protein,-1.35,.67,-.55);box(.7,.13,.42,protein,-1.35,.67,-.1);
+ball(-.95,1.12,-.48,.22,.23,.22,fruit);ball(-.4,1.12,-.48,.2,.22,.2,fruit2);ball(.18,1.12,-.48,.2,.22,.2,veg);ball(.78,1.12,.45,.13,.3,.13,veg);ball(1.12,1.12,-.4,.2,.2,.2,fruit2);
+for(let i=0;i<5;i++)ball(.1+i*.12,1.14,.6,.08,.17,.035,leaf);
+cyl(.18,.22,.48,dairy,-.45,1.65,-.15);cyl(.12,.12,.07,edge,-.45,1.92,-.15);box(.42,.22,.35,dairy,.28,1.63,.15);box(.3,.2,.3,edge,.72,1.62,-.2);
+cyl(.38,.43,.17,edge,0,1.9,0);for(let i=0;i<16;i++){let a=i*2.4,r=.12+(i%4)*.045;ball(Math.cos(a)*r,2.02,Math.sin(a)*r,.075,.055,.07,i%2?protein:fruit2)}
+for(let i=0;i<8;i++){let a=i*Math.PI/4;ball(Math.cos(a)*.32,2.39,Math.sin(a)*.27,.1,.055,.075,i%2?protein:seed)}cyl(.08,.12,.28,fruit2,0,2.38,-.25);
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(100,100),M('#f7f8f4'));floor.rotation.x=-Math.PI/2;floor.position.y=-.22;scene.add(floor);
+function resize(){const w=canvas.clientWidth,h=canvas.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h,false)}new ResizeObserver(resize).observe(canvas);
+document.querySelector('#reset').onclick=()=>{camera.position.set(7.5,6.2,9);controls.target.set(0,1.6,0);controls.update()};
+document.querySelectorAll('.group button').forEach(b=>b.onclick=()=>{const g=b.parentElement;g.classList.toggle('open');b.lastElementChild.textContent=g.classList.contains('open')?'−':'＋'});
+const msg=document.querySelector('#message');function tell(t){msg.textContent=t;msg.style.display='block';setTimeout(()=>msg.style.display='none',5000)}
+document.querySelector('#ar').onclick=async()=>{if(!navigator.xr){tell('This browser does not support WebXR AR. You can still rotate and explore the 3D pyramid here.');return}try{const ok=await navigator.xr.isSessionSupported('immersive-ar');if(!ok){tell('AR is not supported on this device or browser. The 3D model remains available.');return}tell('AR support is available on this device. For full surface placement, a dedicated AR model file and hit-testing setup are still needed.')}catch(e){tell('AR is unavailable in this browser. Please use the interactive 3D view instead.')}};
+renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
+</script>
+</body></html>
