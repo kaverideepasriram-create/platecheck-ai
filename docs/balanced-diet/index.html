@@ -1,92 +1,63 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#172f28">
-<title>Balanced Diet Pyramid | PlateCheck AI</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173b30"><title>Balanced Diet Pyramid | PlateCheck AI</title>
 <style>
-:root{--forest:#173b30;--moss:#6c8d62;--ink:#21352d;--muted:#728078;--line:#e3e9e2;--paper:#f5f4ee}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}
-header{height:66px;padding:0 max(24px,5vw);display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid var(--line)}
-.brand{font-weight:800;color:var(--forest);text-decoration:none;letter-spacing:.02em}.back{font-size:13px;color:var(--forest);text-decoration:none;font-weight:700}
-.hero{text-align:center;padding:34px 18px 20px}.eyebrow{font-size:10px;letter-spacing:.2em;font-weight:800;color:#748c66}.hero h1{font:500 clamp(32px,4.5vw,48px) Georgia,serif;color:var(--forest);margin:9px 0}.hero p{max-width:680px;margin:auto;color:var(--muted);font-size:13px;line-height:1.7}
-main{max-width:1160px;margin:auto;padding:12px 20px 28px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.8fr);gap:18px}
-.viewer,.panel{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 45px #1c35240b;overflow:hidden}
-.viewer{height:610px;position:relative;background:radial-gradient(ellipse at 50% 43%,#fff 0%,#f0f0e9 70%,#e9ebe3 100%)}canvas{width:100%;height:100%;display:block;touch-action:none}
-.controls{position:absolute;top:15px;left:15px;right:15px;display:flex;justify-content:space-between;pointer-events:none}.controls button{pointer-events:auto;border:1px solid #e0e6dd;border-radius:30px;padding:10px 15px;background:#fff;color:var(--forest);font-weight:750;cursor:pointer;box-shadow:0 4px 15px #1a302010}.controls .ar{background:var(--forest);color:#fff;border-color:var(--forest)}
-.hint{position:absolute;bottom:15px;left:15px;background:#ffffffdf;border:1px solid #e4e8df;border-radius:9px;padding:9px 12px;font-size:11px;color:#66766d}
-.panel{padding:23px}.panel h2{font:500 25px Georgia,serif;color:var(--forest);margin:0 0 8px}.panel>p{font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 15px}
-.level{border-top:1px solid var(--line);padding:13px 0}.level button{width:100%;border:0;background:none;display:flex;align-items:center;gap:11px;text-align:left;padding:0;color:var(--ink);font:700 13px inherit;cursor:pointer}.level button{font-family:inherit}.num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#eef2eb;color:var(--forest);font-size:11px;flex:none}.level .desc{margin:9px 0 0 39px;color:var(--muted);font-size:12px;line-height:1.65;display:none}.level.open .desc{display:block}.level .plus{margin-left:auto;color:#718078;font-size:17px}
-.remember{margin-top:13px;padding:14px;border-radius:13px;background:#eef3eb;color:#536b58;font-size:12px;line-height:1.65}
-.nutrients{max-width:1160px;margin:0 auto;padding:0 20px 35px}.nutrients h2{font:500 25px Georgia,serif;color:var(--forest);margin:12px 0 14px}.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.tile{padding:15px;background:#fff;border:1px solid var(--line);border-radius:14px}.tile b{display:block;font-size:13px;margin-bottom:5px;color:var(--forest)}.tile span{font-size:11px;line-height:1.55;color:var(--muted)}
-footer{text-align:center;padding:0 18px 26px;color:var(--muted);font-size:11px}#message{display:none;position:absolute;top:66px;left:50%;transform:translateX(-50%);background:#173b30;color:white;padding:10px 14px;border-radius:10px;font-size:12px;max-width:90%;text-align:center}
-@media(max-width:850px){main{grid-template-columns:1fr}.viewer{height:520px}.tiles{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.viewer{height:430px}.panel{padding:18px}.hero{padding-top:27px}}
-</style>
-</head>
-<body>
-<header><a class="brand" href="../">PLATECHECK <span style="font-weight:400">/ LEARN</span></a><a class="back" href="../">← Back to home</a></header>
-<section class="hero"><div class="eyebrow">INTERACTIVE NUTRITION GUIDE</div><h1>The Balanced Diet Pyramid</h1><p>Explore a three-dimensional guide to vegetarian food groups. Rotate the model, zoom in on the details and select a level to learn how its foods contribute to a balanced diet.</p></section>
-<main>
-<section class="viewer"><canvas id="scene"></canvas><div class="controls"><button id="reset">Reset view</button><button class="ar" id="ar">View in AR</button></div><div class="hint">Drag to rotate · Scroll or pinch to zoom</div><div id="message"></div></section>
-<aside class="panel"><h2>Explore the five levels</h2><p>Each level shows examples of foods and the nutrients they provide. The pyramid is a learning guide, not a fixed portion prescription.</p>
+:root{--forest:#173b30;--moss:#708b5e;--ink:#24362e;--muted:#738078;--line:#e2e8df;--paper:#f5f4ee}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}header{height:64px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;background:white;border-bottom:1px solid var(--line)}a{color:var(--forest);text-decoration:none;font-weight:750}.hero{text-align:center;padding:30px 18px 16px}.eyebrow{font-size:10px;letter-spacing:.2em;font-weight:800;color:#778b66}.hero h1{font:500 clamp(32px,4.5vw,47px) Georgia,serif;color:var(--forest);margin:9px}.hero p{max-width:680px;margin:auto;color:var(--muted);font-size:13px;line-height:1.7}main{max-width:1190px;margin:auto;padding:12px 20px 28px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(310px,.78fr);gap:18px}.viewer,.panel{background:white;border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 45px #1c35240b;overflow:hidden}.viewer{height:650px;position:relative;background:radial-gradient(ellipse at 50% 48%,#fff 0%,#f0f0e9 76%,#e9ebe3 100%)}canvas{width:100%;height:100%;display:block;touch-action:none}.controls{position:absolute;top:15px;left:15px;right:15px;display:flex;justify-content:space-between;pointer-events:none}.controls button{pointer-events:auto;border:1px solid #e0e6dd;border-radius:30px;padding:10px 15px;background:white;color:var(--forest);font-weight:750;cursor:pointer}.controls .ar{background:var(--forest);color:white}.hint{position:absolute;bottom:14px;left:14px;background:#ffffffdf;border:1px solid #e4e8df;border-radius:9px;padding:9px 12px;font-size:11px;color:#66766d}.panel{padding:22px}.panel h2{font:500 25px Georgia,serif;color:var(--forest);margin:0 0 8px}.panel>p{font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px}.level{border-top:1px solid var(--line);padding:13px 0}.level button{width:100%;border:0;background:none;display:flex;align-items:center;gap:10px;text-align:left;color:var(--ink);font:700 13px inherit;cursor:pointer}.level button{font-family:inherit}.num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#eef2eb;color:var(--forest);font-size:11px;flex:none}.plus{margin-left:auto}.desc{display:none;margin:8px 0 0 38px;color:var(--muted);font-size:12px;line-height:1.65}.level.open .desc{display:block}.remember{margin-top:12px;padding:13px;border-radius:13px;background:#eef3eb;color:#536b58;font-size:12px;line-height:1.65}.nutrients{max-width:1190px;margin:auto;padding:0 20px 32px}.nutrients h2{font:500 25px Georgia,serif;color:var(--forest)}.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.tile{padding:14px;background:white;border:1px solid var(--line);border-radius:14px}.tile b{display:block;font-size:13px;color:var(--forest);margin-bottom:5px}.tile span{font-size:11px;line-height:1.55;color:var(--muted)}footer{text-align:center;padding:0 18px 25px;color:var(--muted);font-size:11px}#message{display:none;position:absolute;top:62px;left:50%;transform:translateX(-50%);background:#173b30;color:white;padding:10px 14px;border-radius:10px;font-size:12px;max-width:90%}@media(max-width:850px){main{grid-template-columns:1fr}.viewer{height:560px}.tiles{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.viewer{height:450px}.panel{padding:17px}}
+</style></head><body>
+<header><a href="../">PLATECHECK / LEARN</a><a href="../">← Back to home</a></header>
+<section class="hero"><div class="eyebrow">INTERACTIVE NUTRITION GUIDE</div><h1>The Balanced Diet Pyramid</h1><p>A miniature vegetarian food exhibition in 3D. Explore familiar foods on each level, rotate the display and select a level to learn about its nutrients.</p></section>
+<main><section class="viewer"><canvas id="scene"></canvas><div class="controls"><button id="reset">Reset view</button><button class="ar" id="ar">View in AR</button></div><div class="hint">Drag to rotate · Scroll or pinch to zoom</div><div id="message"></div></section>
+<aside class="panel"><h2>Explore the five levels</h2><p>Each level features examples of foods and the nutrients they provide. The pyramid is a learning guide, not a fixed portion prescription.</p>
 <div class="level open"><button><span class="num">05</span> Fats and foods to limit <span class="plus">−</span></button><div class="desc"><b>Examples:</b> nuts, seeds, vegetable oils and foods high in added sugar.<br><b>Function:</b> Unsaturated fats support cell function and help absorb vitamins A, D, E and K. Foods high in added sugar should be limited.</div></div>
 <div class="level"><button><span class="num">04</span> Plant-based protein <span class="plus">＋</span></button><div class="desc"><b>Examples:</b> lentils, chickpeas, kidney beans, soybeans, tofu and peanuts.<br><b>Function:</b> Proteins provide amino acids needed for growth, maintenance and tissue repair.</div></div>
 <div class="level"><button><span class="num">03</span> Dairy and calcium-rich foods <span class="plus">＋</span></button><div class="desc"><b>Examples:</b> milk, curd, paneer and fortified soy milk.<br><b>Function:</b> Calcium and protein support bones, teeth and body tissues.</div></div>
 <div class="level"><button><span class="num">02</span> Fruits and vegetables <span class="plus">＋</span></button><div class="desc"><b>Examples:</b> apples, bananas, oranges, carrots, spinach, tomatoes and broccoli.<br><b>Function:</b> Provide vitamins, minerals, antioxidants and dietary fibre for normal body functions and digestive health.</div></div>
 <div class="level"><button><span class="num">01</span> Grains and cereals <span class="plus">＋</span></button><div class="desc"><b>Examples:</b> rice, whole wheat, oats, ragi and other millets.<br><b>Function:</b> Carbohydrates are a major source of energy. Whole grains also provide fibre and B vitamins.</div></div>
-<div class="remember"><b>Remember:</b> A balanced diet includes variety, suitable portions and enough water. No single food provides every nutrient the body needs.</div>
-</aside>
-</main>
-<section class="nutrients"><h2>Seven essential components of a balanced diet</h2><div class="tiles">
-<div class="tile"><b>Carbohydrates</b><span>Main source of energy for daily activities.</span></div><div class="tile"><b>Proteins</b><span>Support growth and tissue repair.</span></div><div class="tile"><b>Fats</b><span>Store energy and support cell function.</span></div><div class="tile"><b>Vitamins</b><span>Help regulate body processes.</span></div><div class="tile"><b>Minerals</b><span>Support bones, blood, nerves and muscles.</span></div><div class="tile"><b>Dietary fibre</b><span>Supports healthy digestion.</span></div><div class="tile"><b>Water</b><span>Helps transport substances and regulate body temperature.</span></div></div></section>
-<footer>PlateCheck AI · Grade 7 educational experience · Vegetarian food examples</footer>
+<div class="remember"><b>Remember:</b> A balanced diet includes variety, suitable portions and enough water. No single food provides every nutrient the body needs.</div></aside></main>
+<section class="nutrients"><h2>Seven essential components of a balanced diet</h2><div class="tiles"><div class="tile"><b>Carbohydrates</b><span>Main source of energy for daily activities.</span></div><div class="tile"><b>Proteins</b><span>Support growth and tissue repair.</span></div><div class="tile"><b>Fats</b><span>Store energy and support cell function.</span></div><div class="tile"><b>Vitamins</b><span>Help regulate body processes.</span></div><div class="tile"><b>Minerals</b><span>Support bones, blood, nerves and muscles.</span></div><div class="tile"><b>Dietary fibre</b><span>Supports healthy digestion.</span></div><div class="tile"><b>Water</b><span>Helps transport substances and regulate body temperature.</span></div></div></section><footer>PlateCheck AI · Grade 7 educational experience · Vegetarian food examples</footer>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}</script>
 <script type="module">
-import * as THREE from 'three';
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
-const canvas=document.querySelector('#scene'),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
-renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;
-const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(34,1,.1,100);camera.position.set(7.7,6.1,8.6);
-const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,1.55,0);controls.enableDamping=true;controls.minDistance=5;controls.maxDistance=16;
-scene.add(new THREE.HemisphereLight(0xfff9e9,0x777c6c,2.1));const sun=new THREE.DirectionalLight(0xffffff,3.1);sun.position.set(5,9,7);scene.add(sun);const fill=new THREE.DirectionalLight(0xffffff,1.4);fill.position.set(-6,4,-4);scene.add(fill);
-const root=new THREE.Group();scene.add(root);
-const mat=(c,r=.62,metal=0)=>new THREE.MeshStandardMaterial({color:c,roughness:r,metalness:metal});
-const cream=mat('#e9e3d4'),gold=mat('#c5a56c'),grain=mat('#c99b5d'),green=mat('#668b59'),dairy=mat('#eee6d5'),protein=mat('#98704d'),olive=mat('#b2a06d');
-function mesh(geo,m,x,y,z,group=root){const o=new THREE.Mesh(geo,m);o.position.set(x,y,z);group.add(o);return o}
-function sphere(x,y,z,sx,sy,sz,m,group=root){const o=mesh(new THREE.SphereGeometry(1,28,20),m,x,y,z,group);o.scale.set(sx,sy,sz);return o}
-function taperedTier(bottom,top,height,y,m){const g=new THREE.CylinderGeometry(top/Math.SQRT2,bottom/Math.SQRT2,height,4,1,false);g.rotateY(Math.PI/4);const o=mesh(g,m,0,y,0);o.castShadow=true;o.receiveShadow=true;const rim=mesh(new THREE.CylinderGeometry((bottom+.07)/Math.SQRT2,(bottom+.07)/Math.SQRT2,.055,4),cream,0,y-height/2,0);rim.rotation.y=Math.PI/4;return o}
-function foodBase(x,y,z,s,m){return sphere(x,y,z,s,s*.78,s,m)}
-function grainCluster(x,y,z){for(let i=0;i<7;i++){let a=i*2.4; sphere(x+Math.cos(a)*.12,y+(i%3)*.025,z+Math.sin(a)*.12,.07,.045,.045,i%2?gold:grain)}}
-function apple(x,y,z,c){sphere(x,y,z,.17,.17,.16,mat(c,.34));mesh(new THREE.CylinderGeometry(.012,.018,.09,8),mat('#705238'),x,y+.19,z)}
-function carrot(x,y,z){const o=mesh(new THREE.ConeGeometry(.12,.48,20),mat('#d77b32'),x,y,z);o.rotation.z=Math.PI;for(let i=0;i<3;i++)sphere(x+(i-1)*.07,y+.24,z,.025,.1,.025,mat('#4d7947'))}
-function broccoli(x,y,z){const stem=mesh(new THREE.CylinderGeometry(.045,.06,.22,12),mat('#73905a'),x,y-.08,z);for(let i=0;i<5;i++){let a=i*Math.PI*2/5;sphere(x+Math.cos(a)*.1,y+.06,z+Math.sin(a)*.1,.12,.12,.12,mat('#477a48'))}sphere(x,y+.14,z,.13,.13,.13,mat('#477a48'))}
-function loaf(x,y,z){const o=mesh(new THREE.BoxGeometry(.42,.2,.28),mat('#bd8950'),x,y,z);o.rotation.y=.2;sphere(x,y+.08,z,.2,.1,.14,mat('#d4a56c'))}
-function carton(x,y,z){const o=mesh(new THREE.BoxGeometry(.2,.38,.18),dairy,x,y,z);mesh(new THREE.ConeGeometry(.14,.13,4),mat('#d9d0bd'),x,y+.25,z)}
-function bowl(x,y,z,m){mesh(new THREE.CylinderGeometry(.18,.13,.08,24),mat('#ddd6c7'),x,y,z);for(let i=0;i<6;i++){let a=i*Math.PI/3;sphere(x+Math.cos(a)*.09,y+.065,z+Math.sin(a)*.09,.06,.04,.06,m)}}
-mesh(new THREE.CylinderGeometry(2.85,2.95,.16,4),mat('#d8d1c2'),0,-.08,0).rotation.y=Math.PI/4;
-taperedTier(5.1,4.35,.62,.31,grain);
-taperedTier(4.28,3.45,.56,.9,green);
-taperedTier(3.38,2.55,.5,1.43,dairy);
-taperedTier(2.48,1.72,.46,1.91,protein);
-taperedTier(1.65,.82,.42,2.35,olive);
-// grains on the broad base
-for(let i=0;i<9;i++){let x=-1.65+(i%5)*.62,z=-.78+Math.floor(i/5)*.65;grainCluster(x,.66,z)}
-loaf(-1.55,.7,.65);loaf(1.55,.7,-.55);
-// produce on second tier
-apple(-1.05,1.25,-.42,'#c64f3d');apple(-.55,1.25,-.42,'#d9aa42');apple(.0,1.25,-.42,'#d9aa42');broccoli(.82,1.29,-.38);carrot(1.3,1.38,.38);sphere(-1.3,1.26,.48,.13,.21,.12,mat('#e2bd50'));sphere(.25,1.28,.55,.16,.14,.16,mat('#c85c42'));
-// dairy level
-carton(-.58,1.85,-.12);mesh(new THREE.CylinderGeometry(.13,.13,.25,24),mat('#eee7da'),.05,1.88,.1);mesh(new THREE.CylinderGeometry(.14,.14,.035,24),mat('#b9c8b2'),.05,2.02,.1);mesh(new THREE.BoxGeometry(.3,.16,.27),mat('#eee4d0'),.57,1.86,-.22);
-// protein level
-bowl(-.45,2.17,.05,mat('#b58b53'));bowl(.35,2.17,.12,mat('#a8794d'));sphere(.65,2.2,-.3,.1,.08,.1,mat('#c5a16b'));
-// top nuts and seeds
-for(let i=0;i<11;i++){let a=i*2.4,r=.22+(i%3)*.07;sphere(Math.cos(a)*r,2.64,Math.sin(a)*r,.075,.05,.055,i%2?mat('#b88d58'):mat('#d0b276'))}
-const floor=mesh(new THREE.CircleGeometry(30,80),mat('#eeeee7'),0,-.18,0);floor.rotation.x=-Math.PI/2;
+import * as THREE from 'three';import{OrbitControls}from'three/addons/controls/OrbitControls.js';
+const canvas=document.querySelector('#scene'),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.18;
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(34,1,.1,100);camera.position.set(8,6.4,9);const controls=new OrbitControls(camera,canvas);controls.target.set(0,1.5,0);controls.enableDamping=true;controls.minDistance=5;controls.maxDistance=16;
+scene.add(new THREE.HemisphereLight(0xfff9ed,0x73796a,2.2));const key=new THREE.DirectionalLight(0xffffff,3.2);key.position.set(5,9,7);scene.add(key);const fill=new THREE.DirectionalLight(0xffffff,1.4);fill.position.set(-6,5,-5);scene.add(fill);
+const model=new THREE.Group();scene.add(model);const mat=(c,r=.5)=>new THREE.MeshStandardMaterial({color:c,roughness:r});const cream=mat('#e7e1d4'),grain=mat('#c49a5c'),green=mat('#6d8d5e'),dairy=mat('#f1e8d4'),protein=mat('#9b714d'),gold=mat('#d4b579');
+function add(g,m,x,y,z,par=model){const o=new THREE.Mesh(g,m);o.position.set(x,y,z);par.add(o);return o}
+function ball(x,y,z,sx,sy,sz,m){const o=add(new THREE.SphereGeometry(1,28,20),m,x,y,z);o.scale.set(sx,sy,sz);return o}
+function box(x,y,z,sx,sy,sz,m){return add(new THREE.BoxGeometry(sx,sy,sz),m,x,y,z)}
+function tier(bottom,top,h,y,m){const o=add(new THREE.CylinderGeometry(top/Math.SQRT2,bottom/Math.SQRT2,h,4),m,0,y,0);o.rotation.y=Math.PI/4;o.castShadow=true;const rim=add(new THREE.CylinderGeometry((top+.1)/Math.SQRT2,(top+.1)/Math.SQRT2,.045,4),cream,0,y+h/2,0);rim.rotation.y=Math.PI/4}
+function stem(x,y,z,h=.15){const o=add(new THREE.CylinderGeometry(.012,.018,h,8),mat('#765339'),x,y+h/2,z);return o}
+function apple(x,y,z,c){const m=mat(c,.3);ball(x,y,z,.16,.17,.15,m);ball(x-.07,y+.015,z,.085,.12,.1,m);stem(x,y+.15,z,.09)}
+function banana(x,y,z){const group=new THREE.Group();model.add(group);const curve=new THREE.CatmullRomCurve3([new THREE.Vector3(-.18,.12,0),new THREE.Vector3(-.1,.02,0),new THREE.Vector3(0,-.03,0),new THREE.Vector3(.12,.02,0),new THREE.Vector3(.2,.14,0)]);const mesh=add(new THREE.TubeGeometry(curve,24,.055,12,false),mat('#e7c84c'),x,y,z,group);stem(-.18+x,.12+y,z,.05);stem(.2+x,.14+y,z,.05)}
+function carrot(x,y,z){const o=add(new THREE.ConeGeometry(.11,.42,24),mat('#df8138'),x,y,z);o.rotation.z=Math.PI;for(let i=0;i<3;i++)ball(x+(i-1)*.045,y+.22,z,.018,.09,.018,mat('#54804b'))}
+function broccoli(x,y,z){add(new THREE.CylinderGeometry(.045,.065,.2,12),mat('#8b9b54'),x,y-.11,z);for(let i=0;i<6;i++){const a=i*Math.PI/3;ball(x+Math.cos(a)*.09,y+.02,z+Math.sin(a)*.09,.095,.1,.095,mat('#47794a'))}ball(x,y+.09,z,.12,.12,.12,mat('#4c804d'))}
+function tomato(x,y,z){ball(x,y,z,.14,.13,.14,mat('#c94f3d',.32));for(let i=0;i<5;i++){let a=i*Math.PI*2/5;const leaf=add(new THREE.ConeGeometry(.025,.11,8),mat('#52764a'),x+Math.cos(a)*.045,y+.12,z+Math.sin(a)*.045);leaf.rotation.z=.5}}
+function bread(x,y,z){const m=mat('#b77e43');box(x,y,z,.48,.22,.31,m);ball(x,y+.07,z,.23,.11,.16,mat('#d7a56a'));for(let i=0;i<3;i++)box(x-.13+i*.13,y+.12,z,.035,.012,.13,mat('#e9c18a'))}
+function grainBowl(x,y,z,c){add(new THREE.CylinderGeometry(.18,.13,.11,32),mat('#e7e0d2'),x,y,z);for(let i=0;i<16;i++){const a=i*2.4,r=.12*Math.sqrt((i%7+1)/7);ball(x+Math.cos(a)*r,y+.07,z+Math.sin(a)*r,.035,.025,.028,c)}}
+function bottle(x,y,z){add(new THREE.CylinderGeometry(.105,.13,.36,24),dairy,x,y,z);add(new THREE.CylinderGeometry(.055,.055,.09,20),dairy,x,y+.22,z);add(new THREE.CylinderGeometry(.06,.06,.045,20),mat('#a9bba4'),x,y+.29,z)}
+function curdBowl(x,y,z){add(new THREE.CylinderGeometry(.17,.13,.1,32),mat('#d9d4c9'),x,y,z);add(new THREE.CylinderGeometry(.145,.145,.018,32),mat('#faf8ef'),x,y+.06,z)}
+function paneer(x,y,z){for(let i=0;i<4;i++)box(x+(i%2)*.12,y+Math.floor(i/2)*.09,z,.105,.085,.1,mat('#f0e5c9'))}
+function bean(x,y,z,c){ball(x,y,z,.075,.055,.045,mat(c,.35))}
+function nut(x,y,z,c){const o=ball(x,y,z,.055,.1,.045,mat(c,.4));o.rotation.z=.4}
+function leafy(x,y,z){for(let i=0;i<5;i++){let a=i*1.25;const leaf=ball(x+Math.cos(a)*.09,y,z+Math.sin(a)*.09,.09,.025,.045,mat('#47764b'));leaf.rotation.y=a}}
+function seedDish(x,y,z){add(new THREE.CylinderGeometry(.16,.12,.07,28),mat('#d9d2c5'),x,y,z);for(let i=0;i<14;i++){let a=i*2.4,r=.1*Math.sqrt((i%9+1)/9);ball(x+Math.cos(a)*r,y+.05,z+Math.sin(a)*r,.027,.018,.023,i%2?gold:mat('#7c694f'))}
+// display plinth and five stepped food platforms
+add(new THREE.CylinderGeometry(3.08,3.14,.18,4),mat('#d6d0c3'),0,-.09,0).rotation.y=Math.PI/4;
+tier(5.45,4.55,.58,.29,grain);tier(4.48,3.62,.55,.87,green);tier(3.55,2.66,.5,1.395,dairy);tier(2.59,1.78,.45,1.87,protein);tier(1.72,.88,.42,2.305,gold);
+// grains and cereals, arranged as a generous display on the bottom shelf
+bread(-1.65,.62,.5);bread(1.6,.62,-.48);grainBowl(-.65,.61,-.65,grain);grainBowl(.58,.61,.68,gold);for(let i=0;i<3;i++){let x=-1.1+i*.72;const stalk=add(new THREE.CylinderGeometry(.012,.018,.48,8),mat('#9b8551'),x,.82,-1.05);stalk.rotation.z=(i-1)*-.2;for(let j=0;j<5;j++)ball(x+(j%2)*.07,.96-j*.055,-1.05,.045,.09,.035,gold)}
+// fruit and vegetable display on level two
+apple(-1.02,1.22,-.42,'#c94c3c');apple(-.5,1.22,-.42,'#e4b64c');banana(.12,1.19,-.55);broccoli(.92,1.22,-.42);carrot(1.28,1.38,.35);tomato(-1.28,1.22,.42);leafy(.25,1.2,.5);
+// dairy foods
+bottle(-.66,1.77,-.15);curdBowl(.03,1.72,.25);paneer(.65,1.75,-.2);
+// plant protein bowls and beans
+grainBowl(-.42,2.12,.02,mat('#9b7046'));for(let i=0;i<9;i++){bean(-.42+(i%3)*.07,2.23+Math.floor(i/3)*.015,.02+Math.floor(i/3)*.065,i%2?'#a66b42':'#8e4638')}
+grainBowl(.42,2.12,.08,mat('#b68b51'));for(let i=0;i<7;i++)bean(.36+(i%3)*.075,2.22,.02+Math.floor(i/3)*.07,'#c39a62');paneer(.82,2.12,-.3);
+// nuts, seeds and oil at the top
+for(let i=0;i<7;i++){let a=i*2.4;nut(Math.cos(a)*.27,2.59,Math.sin(a)*.22,i%2?'#b98b56':'#d0ad75')}seedDish(0,2.56,-.23);
+const floor=add(new THREE.CircleGeometry(35,80),mat('#efeee8'),0,-.2,0);floor.rotation.x=-Math.PI/2;
 function resize(){let w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}new ResizeObserver(resize).observe(canvas);resize();
-document.querySelector('#reset').onclick=()=>{camera.position.set(7.7,6.1,8.6);controls.target.set(0,1.55,0);controls.update()};
-document.querySelectorAll('.level button').forEach(b=>b.onclick=()=>{const el=b.parentElement;el.classList.toggle('open');b.querySelector('.plus').textContent=el.classList.contains('open')?'−':'＋'});
-const msg=document.querySelector('#message');function tell(t){msg.textContent=t;msg.style.display='block';setTimeout(()=>msg.style.display='none',4800)}
-document.querySelector('#ar').onclick=()=>tell('This page currently offers interactive 3D viewing. Full AR surface placement is not enabled yet.');
+document.querySelector('#reset').onclick=()=>{camera.position.set(8,6.4,9);controls.target.set(0,1.5,0);controls.update()};
+document.querySelectorAll('.level button').forEach(b=>b.onclick=()=>{let el=b.parentElement;el.classList.toggle('open');b.querySelector('.plus').textContent=el.classList.contains('open')?'−':'＋'});
+const msg=document.querySelector('#message');document.querySelector('#ar').onclick=()=>{msg.textContent='Interactive 3D viewing is available. Full AR surface placement is not enabled yet.';msg.style.display='block';setTimeout(()=>msg.style.display='none',4500)};
 renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
-</script>
-</body></html>
+</script></body></html>
