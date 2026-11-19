@@ -111,9 +111,10 @@ if (chatForm) {
     if (!question) return;
     const q = question.toLowerCase();
     const match = pairings.find(item => item.keys.some(key => q.includes(key)));
+    const matchedFood = match ? match.keys.find(key => q.includes(key)) : "";
     let response;
     if (match) {
-      response = "A few ideas to go with " + match.keys[0] + ":\n\nVegetarian: " + match.veg + ".\n\nIf you eat non-vegetarian foods: " + match.nonveg + ".\n\nA helpful balance is to combine a grain or starchy food with protein-rich foods and vegetables or fruit. Choose the combinations you enjoy and that fit your usual meals.";
+      response = "A few ideas to go with " + matchedFood + ":\n\nVegetarian: " + match.veg + ".\n\nIf you eat non-vegetarian foods: " + match.nonveg + ".\n\nA helpful balance is to combine a grain or starchy food with protein-rich foods and vegetables or fruit. Choose the combinations you enjoy and that fit your usual meals.";
     } else if (/protein|vegetarian|veg options/.test(q)) {
       response = "Some protein-rich choices include dal, chickpeas, rajma, beans, soy foods, tofu, paneer, milk, curd, nuts and seeds. If you eat non-vegetarian foods, eggs, fish and chicken are also options. You can pair one with rice, roti, bread or another grain, plus vegetables.";
     } else if (/balanced|healthy|food pyramid|food groups/.test(q)) {
