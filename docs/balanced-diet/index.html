@@ -39,7 +39,7 @@ function paneer(x,y,z){for(let i=0;i<4;i++)box(x+(i%2)*.12,y+Math.floor(i/2)*.09
 function bean(x,y,z,c){ball(x,y,z,.075,.055,.045,mat(c,.35))}
 function nut(x,y,z,c){const o=ball(x,y,z,.055,.1,.045,mat(c,.4));o.rotation.z=.4}
 function leafy(x,y,z){for(let i=0;i<5;i++){let a=i*1.25;const leaf=ball(x+Math.cos(a)*.09,y,z+Math.sin(a)*.09,.09,.025,.045,mat('#47764b'));leaf.rotation.y=a}}
-function seedDish(x,y,z){add(new THREE.CylinderGeometry(.16,.12,.07,28),mat('#d9d2c5'),x,y,z);for(let i=0;i<14;i++){let a=i*2.4,r=.1*Math.sqrt((i%9+1)/9);ball(x+Math.cos(a)*r,y+.05,z+Math.sin(a)*r,.027,.018,.023,i%2?gold:mat('#7c694f'))}
+function seedDish(x,y,z){add(new THREE.CylinderGeometry(.16,.12,.07,28),mat('#d9d2c5'),x,y,z);for(let i=0;i<14;i++){let a=i*2.4,r=.1*Math.sqrt((i%9+1)/9);ball(x+Math.cos(a)*r,y+.05,z+Math.sin(a)*r,.027,.018,.023,i%2?gold:mat('#7c694f'))}}
 // display plinth and five stepped food platforms
 add(new THREE.CylinderGeometry(3.08,3.14,.18,4),mat('#d6d0c3'),0,-.09,0).rotation.y=Math.PI/4;
 tier(5.45,4.55,.58,.29,grain);tier(4.48,3.62,.55,.87,green);tier(3.55,2.66,.5,1.395,dairy);tier(2.59,1.78,.45,1.87,protein);tier(1.72,.88,.42,2.305,gold);
