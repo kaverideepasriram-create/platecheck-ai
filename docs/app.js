@@ -86,31 +86,41 @@ if ("serviceWorker" in navigator) {
 }
 
 
+// PlateCheck food-pairing helper. This is a transparent, offline rule-based demo,
+ // not an AI model. It works on GitHub Pages without a server or API key.
 const chatForm = document.getElementById("chatForm");
 if (chatForm) {
-  chatForm.addEventListener("submit", async (event) => {
+  const pairings = [
+    { keys: ["roti", "chapati", "phulka"], group: "grain", veg: "dal or chana, a vegetable sabzi such as bhindi or mixed vegetables, and curd", nonveg: "egg curry or chicken curry with a vegetable sabzi and curd" },
+    { keys: ["rice", "biryani"], group: "grain", veg: "dal or rajma, a vegetable dish, and raita", nonveg: "egg, fish or chicken curry, plus a vegetable side and raita" },
+    { keys: ["dosa", "idli"], group: "grain", veg: "sambar for lentils and vegetables, plus coconut chutney", nonveg: "sambar and chutney; if you want a non-vegetarian side, an egg dish can also go with it" },
+    { keys: ["pasta", "spaghetti"], group: "grain", veg: "tomato and vegetable sauce with beans, lentils or cheese", nonveg: "tomato and vegetable sauce with egg, chicken or fish" },
+    { keys: ["bread", "toast", "sandwich"], group: "grain", veg: "paneer, hummus, beans or cheese, with cucumber and tomato", nonveg: "egg, tuna or chicken, with lettuce, cucumber or tomato" },
+    { keys: ["noodles", "ramen"], group: "grain", veg: "tofu or edamame with plenty of mixed vegetables", nonveg: "egg, chicken or prawns with mixed vegetables" },
+    { keys: ["potato", "aloo"], group: "starch", veg: "dal, chickpeas or paneer, plus a vegetable or salad", nonveg: "egg, fish or chicken, plus a vegetable side" },
+    { keys: ["oats", "porridge"], group: "grain", veg: "milk or fortified soy milk, nuts or seeds, and fruit", nonveg: "milk or yoghurt, nuts or seeds, and fruit; an egg can be another option on the side" },
+    { keys: ["salad"], group: "vegetable", veg: "chickpeas, kidney beans, tofu, paneer or nuts, with whole-grain bread", nonveg: "egg, tuna, fish or chicken, with whole-grain bread" },
+    { keys: ["soup"], group: "vegetable", veg: "whole-grain toast and beans, lentils or tofu", nonveg: "whole-grain toast with egg, chicken or fish" },
+    { keys: ["pancake"], group: "grain", veg: "yoghurt or milk, nut butter, and fresh fruit", nonveg: "yoghurt or milk and fruit; eggs can be served alongside" }
+  ];
+  const form = chatForm;
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
     const question = document.getElementById("chatQuestion").value.trim();
     const answer = document.getElementById("chatAnswer");
-    const button = document.getElementById("chatButton");
     if (!question) return;
-    button.disabled = true;
-    button.textContent = "Thinking…";
-    answer.textContent = "Connecting to the AI service…";
-    try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({question})
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "The AI service is not connected yet.");
-      answer.textContent = data.answer || "I couldn't create an answer. Please try again.";
-    } catch (error) {
-      answer.textContent = "The online AI connection is not set up yet. Your question feature is ready, and we'll connect its free AI service next.";
-    } finally {
-      button.disabled = false;
-      button.textContent = "Ask a food question →";
+    const q = question.toLowerCase();
+    const match = pairings.find(item => item.keys.some(key => q.includes(key)));
+    let response;
+    if (match) {
+      response = "A few ideas to go with " + match.keys[0] + ":\n\nVegetarian: " + match.veg + ".\n\nIf you eat non-vegetarian foods: " + match.nonveg + ".\n\nA helpful balance is to combine a grain or starchy food with protein-rich foods and vegetables or fruit. Choose the combinations you enjoy and that fit your usual meals.";
+    } else if (/protein|vegetarian|veg options/.test(q)) {
+      response = "Some protein-rich choices include dal, chickpeas, rajma, beans, soy foods, tofu, paneer, milk, curd, nuts and seeds. If you eat non-vegetarian foods, eggs, fish and chicken are also options. You can pair one with rice, roti, bread or another grain, plus vegetables.";
+    } else if (/balanced|healthy|food pyramid|food groups/.test(q)) {
+      response = "A varied meal can include a grain or starchy food, vegetables or fruit, and a protein-rich food. Dairy or a fortified alternative can contribute calcium and other nutrients. The food pyramid is a learning guide, not a strict rule for every meal.";
+    } else {
+      response = "I can suggest pairings for common foods such as roti, rice, dosa, idli, pasta, bread, noodles, potatoes, oats, salad and soup. Try asking, for example: “What can I eat with rice?” or “What protein can I add to a vegetable salad?”";
     }
+    answer.textContent = response + "\n\nDemo note: This version uses a small built-in food-pairing guide, not a live AI model. The AI chat and photo recognition are planned future upgrades.";
   });
 }
