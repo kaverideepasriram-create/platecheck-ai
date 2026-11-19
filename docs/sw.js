@@ -1,4 +1,4 @@
-const CACHE = "platecheck-shell-v6";
+const CACHE = "platecheck-shell-v7";
 const SHELL = ["/", "/styles.css", "/app.js", "/manifest.webmanifest"];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)));
