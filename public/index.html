@@ -4,80 +4,108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#174c3a">
-  <meta name="description" content="PlateCheck AI helps you explore the food groups visible in a meal.">
+  <meta name="description" content="Explore the balanced diet pyramid and learn about the food groups in a meal with PlateCheck.">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" href="/styles.css">
-  <title>PlateCheck AI</title>
+  <title>PlateCheck | Balanced Diet Project</title>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="topbar">
-    <a class="brand" href="/" aria-label="PlateCheck AI home"><span class="brand-mark">P</span><span>PlateCheck <b>AI</b></span></a>
-    <span class="top-note">A little more variety, one plate at a time</span>
+    <a class="brand" href="/" aria-label="PlateCheck home"><span class="brand-mark">P</span><span>PlateCheck</span></a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="#meal-checker">Meal checker</a>
+      <a href="/balanced-diet/">3D food pyramid</a>
+    </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">YOUR FRIENDLY FOOD-GROUP GUIDE</p>
-        <h1>What's on your plate?</h1>
-        <p class="intro">Add a photo of your meal. PlateCheck will look for visible food groups and share a few ideas for variety.</p>
-        <div class="trust-line"><span>●</span> No calorie scores. No food shaming. Just helpful ideas.</div>
+        <p class="eyebrow">A GRADE 7 BALANCED DIET PROJECT</p>
+        <h1>Explore what makes a balanced diet.</h1>
+        <p class="intro">Learn about the food groups, explore a 3D food pyramid and try the meal checker.</p>
+        <div class="hero-actions">
+          <a class="button-link" href="#explore">Explore the project <span aria-hidden="true">→</span></a>
+          <a class="quiet-link" href="#meal-checker">Go to meal checker</a>
+        </div>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="plate"><div class="plate-food food-a"></div><div class="plate-food food-b"></div><div class="plate-food food-c"></div><div class="plate-food food-d"></div></div>
-        <span class="float fruit">🍅</span><span class="float leaf">🥬</span><span class="float grain">🍞</span>
+        <span class="float fruit">●</span><span class="float leaf">✦</span><span class="float grain">●</span>
       </div>
     </section>
 
-    <section class="workspace">
-      <div class="upload-card">
-        <div class="section-heading"><span class="step">01</span><div><h2>Add your meal photo</h2><p>Use a clear photo taken from above if possible.</p></div></div>
-        <label class="dropzone" id="dropzone" for="photoInput">
-          <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" capture="environment">
-          <span class="upload-icon">↑</span>
-          <strong>Choose a photo</strong>
-          <span>Tap to take a picture or select one</span>
-          <small>JPG, PNG or WEBP · Up to 8 MB</small>
-        </label>
-        <div class="preview-wrap" id="previewWrap" hidden>
-          <img id="preview" alt="Your selected meal">
-          <button class="text-button" id="changePhoto" type="button">Change photo</button>
-        </div>
-        <button class="primary-button" id="analyzeButton" type="button" disabled>Check my plate <span>→</span></button>
-        <p class="privacy-note">Your photo is sent to the AI service for analysis when you press the button. It isn't saved by this starter app.</p>
+    <section class="explore-section" id="explore" aria-labelledby="explore-title">
+      <div class="section-intro">
+        <p class="eyebrow">START HERE</p>
+        <h2 id="explore-title">Choose what you want to explore</h2>
+        <p>Two simple ways to learn about balanced eating.</p>
       </div>
-
-      <div class="results-card" id="resultsCard" aria-live="polite">
-        <div class="section-heading"><span class="step">02</span><div><h2>Your plate check</h2><p>Food groups the photo may show.</p></div></div>
-        <div class="empty-state" id="emptyState">
-          <div class="empty-illustration">◉</div>
-          <strong>Your results will appear here</strong>
-          <span>Choose a meal photo to get started.</span>
-        </div>
-        <div id="results" hidden></div>
+      <div class="feature-grid">
+        <article class="feature-card pyramid-card">
+          <div class="feature-number">01</div>
+          <div class="feature-icon pyramid-icon" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          <h3>Explore the 3D food pyramid</h3>
+          <p>Rotate the model, zoom in and explore the food groups and their roles.</p>
+          <a class="feature-link" href="/balanced-diet/">Open 3D pyramid <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="feature-card checker-card">
+          <div class="feature-number">02</div>
+          <div class="feature-icon checker-icon" aria-hidden="true"><span>✓</span></div>
+          <h3>Check a meal</h3>
+          <p>Choose a meal photo to explore which food groups may be visible on the plate.</p>
+          <a class="feature-link" href="#meal-checker">Open meal checker <span aria-hidden="true">→</span></a>
+        </article>
       </div>
     </section>
 
-
-    <section class="how" style="margin-top:24px">
-      <p class="eyebrow">EXPLORE NUTRITION IN 3D</p>
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)">
-        <div style="max-width:620px">
-          <h2 style="color:var(--green);margin:0 0 8px;font-size:22px">Explore the Balanced Diet Pyramid</h2>
-          <p style="color:var(--muted);font-size:14px;line-height:1.6;margin:0">Open an interactive 3D vegetarian food pyramid and learn how food groups and essential nutrients support the body.</p>
-        </div>
-        <a href="/balanced-diet/" style="display:inline-block;background:var(--green);color:#fff;text-decoration:none;padding:13px 19px;border-radius:999px;font-weight:750;font-size:13px">Explore the 3D pyramid →</a>
+    <section class="meal-section" id="meal-checker">
+      <div class="section-intro">
+        <p class="eyebrow">INTERACTIVE ACTIVITY</p>
+        <h2>Meal checker</h2>
+        <p>Add a clear photo of a meal to explore the food groups it may contain.</p>
       </div>
+      <div class="workspace">
+        <div class="upload-card">
+          <div class="section-heading"><span class="step">01</span><div><h3>Add a meal photo</h3><p>Take a picture or choose one from your device.</p></div></div>
+          <label class="dropzone" id="dropzone" for="photoInput">
+            <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" capture="environment">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <strong>Choose a photo</strong>
+            <span>Tap here to take or select a picture</span>
+            <small>JPG, PNG or WEBP · Up to 8 MB</small>
+          </label>
+          <div class="preview-wrap" id="previewWrap" hidden>
+            <img id="preview" alt="Preview of your selected meal">
+            <button class="text-button" id="changePhoto" type="button">Choose a different photo</button>
+          </div>
+          <button class="primary-button" id="analyzeButton" type="button" disabled>Check this meal <span aria-hidden="true">→</span></button>
+          <p class="privacy-note">When you choose Check this meal, the photo is sent to the connected AI service for analysis. This starter app does not save the photo.</p>
+        </div>
+
+        <div class="results-card" id="resultsCard" aria-live="polite">
+          <div class="section-heading"><span class="step">02</span><div><h3>Meal check results</h3><p>Food groups the photo may show.</p></div></div>
+          <div class="empty-state" id="emptyState">
+            <div class="empty-illustration" aria-hidden="true">＋</div>
+            <strong>Your results will appear here</strong>
+            <span>Choose a photo to get started.</span>
+          </div>
+          <div id="results" hidden></div>
+        </div>
+      </div>
+      <p class="disclaimer">This is an educational activity, not medical advice. A photo cannot show every ingredient or tell whether someone's overall diet is balanced.</p>
     </section>
-\n    <section class="how">
-      <p class="eyebrow">HOW IT WORKS</p>
+
+    <section class="how">
+      <p class="eyebrow">HOW TO USE IT</p>
       <div class="how-grid">
-        <article><span>1</span><h3>Snap</h3><p>Take a photo of your meal.</p></article>
-        <article><span>2</span><h3>Spot</h3><p>AI looks for visible food groups.</p></article>
-        <article><span>3</span><h3>Explore</h3><p>Get optional ideas to add variety.</p></article>
+        <article><span>1</span><h3>Choose</h3><p>Select the activity you want to explore.</p></article>
+        <article><span>2</span><h3>Explore</h3><p>Rotate the 3D pyramid or add a meal photo.</p></article>
+        <article><span>3</span><h3>Learn</h3><p>Read about food groups and variety.</p></article>
       </div>
     </section>
-    <footer>PlateCheck AI is an educational tool. A photo cannot reveal every ingredient or tell whether your overall diet is balanced. Food needs differ from person to person.</footer>
+    <footer><span>PlateCheck · Balanced Diet Project</span><span>Created by Kaveri · Grade 7A</span></footer>
   </main>
   <script src="/app.js"></script>
 </body>
