@@ -1,0 +1,10 @@
+{
+  "name": "PlateCheck AI",
+  "short_name": "PlateCheck",
+  "description": "A friendly food-group guide for your plate.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafbf7",
+  "theme_color": "#174c3a",
+  "icons": []
+}
