@@ -35,23 +35,14 @@ input.addEventListener("change", () => {
 
 document.getElementById("changePhoto").addEventListener("click", () => input.click());
 
-analyzeButton.addEventListener("click", async () => {
+analyzeButton.addEventListener("click", () => {
   if (!selectedFile) return;
-  analyzeButton.disabled = true;
-  analyzeButton.textContent = "Checking your plate…";
-  const form = new FormData();
-  form.append("photo", selectedFile);
-  try {
-    const response = await fetch("/api/analyze", { method: "POST", body: form });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || "Could not analyse this photo.");
-    renderResults(data);
-  } catch (error) {
-    showError(error.message || "Something went wrong. Please try again.");
-  } finally {
-    analyzeButton.disabled = false;
-    analyzeButton.innerHTML = 'Check my plate <span>→</span>';
-  }
+  results.hidden = false;
+  emptyState.hidden = true;
+  results.innerHTML = '<div class="ideas"><h3>Photo uploaded successfully!</h3><p>Your food photo is ready to show. Automatic food-group analysis is not switched on yet because it needs a paid AI API and usage credits. Kaveri explains this project limitation below.</p></div>';
+  results.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  analyzeButton.disabled = false;
+  analyzeButton.textContent = "Photo uploaded";
 });
 
 function showError(message) {
